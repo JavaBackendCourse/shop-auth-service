@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: shop-auth-service
+  datasource:
+    url: jdbc:postgresql://${SPRING_DATASOURCE_HOST:localhost}:${SPRING_DATASOURCE_PORT:5432}/${SPRING_DATASOURCE_DB:shop_test}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:test123}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+app:
+  settings:
+    security:
+      jwt:
+        secret-key: ${JWT_SECRET_KEY:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
+        expiration: ${JWT_TTL:3600000} # an hour
+      refresh-token:
+        expiration: ${REFRESH_TOKEN_TTL:86400000} # a day
+      internal-token:
+        value: ${INTERNAL_TOKEN:123321123asd}
+    feign:
+      routes:
+        user-service: ${USER_SERVICE_HOST:localhost:8080}
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+      hibernate:
+        sql: ERROR
+server:
+  port: 8081
