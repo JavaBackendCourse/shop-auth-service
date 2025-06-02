@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.myprojects</groupId>
-	<artifactId>simple-shop-app</artifactId>
+	<artifactId>shop-auth-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>simple-shop-app</name>
-	<description>Simple Shop Application</description>
+	<description>Shop-Auth-Service</description>
 	<url/>
 	<licenses>
 		<license/>
