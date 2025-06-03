@@ -15,6 +15,11 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    bootstrap-servers: ${KAFKA_HOSTS:localhost:19092}
+    topic:
+      revoked-tokens:
+        name: ${REVOKED_TOKENS:revoked-tokens}
 
 app:
   settings:
